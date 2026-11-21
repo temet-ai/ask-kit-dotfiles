@@ -1,0 +1,8 @@
+{
+  "about": "The kinds of question agents answer by hand by reading ~/.config: which file and line binds a key, which of two config files loads last, which font or theme an app uses. The patterns check the shape of an answer (a path:line citation), because the answers depend on the machine; write your own questions with expectations from your own files.",
+  "questions": [
+    { "id": "keybinding", "q": "Which file and line binds Super+Return in my window manager or terminal config, and to what?", "expect": ["\\.\\w+:\\d+", "Return|Enter"] },
+    { "id": "load-order", "q": "If two of my config files set the monitor layout, in what order are they loaded and which one wins?", "expect": ["\\.\\w+:\\d+", "last|after|wins|override|first"] },
+    { "id": "font", "q": "Which font does my terminal use, and where is that set?", "expect": ["\\.\\w+:\\d+", "font"] }
+  ]
+}

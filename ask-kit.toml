@@ -1,0 +1,28 @@
+id = "temet.dotfiles"
+name = "dotfiles"
+version = "0.1.0"
+min_ask_kit = "0.2.0"
+says = "this machine's own configuration in ~/.config: which file sets a keybinding, window rule, theme, font, monitor or app setting, what a setting is now, and changing it"
+keywords = ["keybindings?", "keybinds?", "dotfiles", "~/\\.config", "config files?", "window rules?", "themes?"]
+route_hint = "how this machine's desktop, terminal or apps are configured (~/.config) is dotfiles; a repository's own config files are code"
+cite = "`path:line` relative to the config folder"
+acts = ["dotfiles.edit", "dotfiles.write", "dotfiles.run"]
+
+[[settings]]
+key = "CONFIG_HOME"
+about = "the configuration folder to search and edit"
+default = "~/.config"
+
+[[sources]]
+kind = "folder"
+name = "dotfiles"
+path = "${CONFIG_HOME}"
+about = "the user's configuration folder"
+# Credentials, browser and app data: never searched or read, because what the investigator reads goes to a model.
+exclude = [
+  "*.env", "*token*", "*secret*", "*credential*", "*passw*", "*.pem", "*.key", "id_rsa*", "id_ed25519*",
+  "oauth*", "auth.json", "hosts.yml", "*cookie*", "*Cookie*", "*.sqlite*", "*.db", "*.ldb", "*.log", "*.bak*", "*.sock",
+  "1Password/**", "gcloud/**", "gh/**", "glab-cli/**", "anthropic/**", "Claude/**", "Codex/**", "github-copilot/**",
+  "google-chrome*/**", "chromium*/**", "BraveSoftware/**", "microsoft-edge*/**", "discord/**", "Slack/**",
+  "Code/**", "JetBrains/**", "libreoffice/**", "dconf/**", "op/**", "rclone/**", "mike/**", "ask-kit/**", "openrouter/**",
+]
